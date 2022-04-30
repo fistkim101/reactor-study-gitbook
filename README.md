@@ -1,9 +1,7 @@
 ---
+description: reativeStream 공부하며 남기는 기록
 coverY: 0
 ---
 
-# Welcome!
+# reactor-study
 
-## Welcome aboard!
-
-Welcome to the company wiki! Here you'll find everything you need to know about the company.
