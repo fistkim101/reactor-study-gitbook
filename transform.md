@@ -91,7 +91,7 @@ parameter 는 flatMap과 마찬가지로 up-stream 의 element 들을 inner publ
 
 
 
-### flatMap vs concatMap
+### Flux.flatMap vs Flux.concatMap
 
 둘의 가장 큰 차이는 up-stream 의 element 들을 모두 변환한 각각의 inner publisher 들을 subscribe 하는 행위를 비동기적으로 처리하느냐, 아니면 up-stream 의 element 의 순서를 고려하여 하나 subscribe 하고 다오면 다음 것을 subscribe 하는 식으로 하여 down-stream 에 merge  하느냐의 차이이다.
 
@@ -132,7 +132,7 @@ concatMap의 경우 up-stream의 element 들을 inner publisher로 바꾸는 것
 
 
 
-### flatMapSequential
+### Flux.flatMapSequential
 
 ![](<.gitbook/assets/image (1).png>)
 
