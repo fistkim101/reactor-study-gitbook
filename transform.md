@@ -128,6 +128,8 @@ concatMap의 경우 up-stream의 element 들을 inner publisher로 바꾸는 것
     }
 ```
 
+cf. 참고 : concatenate(1.사슬같이 잇다; 연쇄시키다; <사건 등을> 결부시키다, 연관시키다. 2.연쇄된, 이어진, 연결된)
+
 
 
 
