@@ -6,7 +6,7 @@ description: 변환에 관한 연산자 정리
 
 ### Flux.flatMap
 
-![](<.gitbook/assets/image (2).png>)
+![](<.gitbook/assets/image (2) (1).png>)
 
 up-stream 이 emit 하는 각각의 element 들을 비동기적으로 모두 Publisher로 만들고, 이렇게 만들어진 multiple 한 Publisher 들을 모두 subscribe 해서 하나의 Flux로 merge 한 down-stream 을 반환한다.
 
@@ -51,7 +51,7 @@ parameter 로는 element 들을 inner publisher로 변환해줄 mapper function�
 
 ### Flux.concatMap
 
-![](<.gitbook/assets/image (2) (1) (1).png>)
+![](<.gitbook/assets/image (2) (1) (1) (1).png>)
 
 up-stream 의 element를 비동기적으로 각각 publisher 로 변환은 하지만 정작 subscribe는 up-stream 의 element 순서를 유지하면서 차례 차례 하여 이를 모두 down-stream 으로 merge 하여 반환한다.
 
@@ -136,7 +136,7 @@ cf. 참고 : concatenate(1.사슬같이 잇다; 연쇄시키다; <사건 등을>
 
 ### Flux.flatMapSequential
 
-![](<.gitbook/assets/image (1) (1) (1) (1).png>)
+![](<.gitbook/assets/image (1) (1) (1) (1) (1).png>)
 
 flatMap 처럼 inner publisher 를 비동기적으로 subscribe 하지만 inner publisher 로 부터 emit 되는 값들을 모두 queue 에 담아뒀다가 최종적으로 down-stream 을 구성할 때에는 up-stream의 source order에 맞춰서 merge 하는 연산자이다.
 
@@ -146,7 +146,7 @@ flatMap 처럼 inner publisher 를 비동기적으로 subscribe 하지만 inner 
 
 ### Mono.flatMapMany
 
-![](<.gitbook/assets/image (1) (1) (1).png>)
+![](<.gitbook/assets/image (1) (1) (1) (1).png>)
 
 up-stream 의 element를 publisher 로 변환하여 이를 subscribe하여 Flux인 down-stream 을 만들어서 반환한다.
 
@@ -171,7 +171,7 @@ parameter로 up-stream 의 element 를 publisher 로 변환해주는 mapper func
 
 ### defaultIfEmpty
 
-![](<.gitbook/assets/image (2) (1).png>)
+![](<.gitbook/assets/image (2) (1) (1).png>)
 
 up-stream이 empty 일 경우 down-stream 에 제공할 기본 "값" 을 세팅해주는 연산자이다. 즉, 비어있는 up-stream 의 element를 기본값으로 대비해놓는 연산자이므로 up-stream 의 type 과 동일한 값이어야 한다.
 
@@ -195,7 +195,7 @@ up-stream이 empty 일 경우 down-stream 에 제공할 기본 "값" 을 세팅�
 
 ### switchIfEmtpry
 
-![](<.gitbook/assets/image (1) (1).png>)
+![](<.gitbook/assets/image (1) (1) (1).png>)
 
 up-stream 이 empty  일 경우 down-stream 으로 대체할 "publisher"를 정의해주는 연산자이다. 즉, up-stream 이 비어있다면 switchIfEmpty 에 정의한 "publisher"가 곧 down-stream이 되는 것이다.
 
