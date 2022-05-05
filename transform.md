@@ -6,7 +6,7 @@ description: 변환에 관한 연산자 정리
 
 ### Flux.flatMap
 
-![](<.gitbook/assets/image (1).png>)
+![](<.gitbook/assets/image (2).png>)
 
 up-stream 이 emit 하는 각각의 element 들을 비동기적으로 모두 Publisher로 만들고, 이렇게 만들어진 multiple 한 Publisher 들을 모두 subscribe 해서 하나의 Flux로 merge 한 down-stream 을 반환한다.
 
