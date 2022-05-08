@@ -6,7 +6,7 @@ description: 조합에 관한 연산자 정리
 
 ### Flux.concat vs Flux.concatWith
 
-![](<.gitbook/assets/image (7).png>)
+![](<.gitbook/assets/image (7) (1).png>)
 
 ![](<.gitbook/assets/image (5) (1).png>)
 
@@ -107,7 +107,7 @@ flatMapSequantial() 은 element 들을 변형하여 호출 순서에 맞게 down
 
 ### Flux.zip vs Flux.zipWith
 
-![](<.gitbook/assets/image (2).png>)
+![](<.gitbook/assets/image (2) (1).png>)
 
 zip 은 두 publisher 를 하나로 묶어줄 때 사용한다. concat은 단순히 publisher 를 이어 붙여줬고, merge 가 병렬적으로 subscribe 하여 하나의 down-stream 으로 합쳐줬다면 zip은 publisher 들을 조합함에 있어서 좀더 세밀하게 이를 컨트롤하여 down-stream 자체가 이미 원하는 처리가 되어서 나오도록 구현이 가능하다.
 
