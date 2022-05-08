@@ -136,7 +136,7 @@ cf. 참고 : concatenate(1.사슬같이 잇다; 연쇄시키다; <사건 등을>
 
 ### Flux.flatMapSequential
 
-![](<.gitbook/assets/image (1) (1) (1) (1) (1).png>)
+![](<.gitbook/assets/image (1) (1) (1) (1) (1) (1).png>)
 
 flatMap 처럼 inner publisher 를 비동기적으로 subscribe 하지만 inner publisher 로 부터 emit 되는 값들을 모두 queue 에 담아뒀다가 최종적으로 down-stream 을 구성할 때에는 up-stream의 source order에 맞춰서 merge 하는 연산자이다.
 
@@ -146,7 +146,7 @@ flatMap 처럼 inner publisher 를 비동기적으로 subscribe 하지만 inner 
 
 ### Mono.flatMapMany
 
-![](<.gitbook/assets/image (1) (1) (1) (1).png>)
+![](<.gitbook/assets/image (1) (1) (1) (1) (1).png>)
 
 up-stream 의 element를 publisher 로 변환하여 이를 subscribe하여 Flux인 down-stream 을 만들어서 반환한다.
 
@@ -195,7 +195,7 @@ up-stream이 empty 일 경우 down-stream 에 제공할 기본 "값" 을 세팅�
 
 ### switchIfEmtpry
 
-![](<.gitbook/assets/image (1) (1) (1).png>)
+![](<.gitbook/assets/image (1) (1) (1) (1).png>)
 
 up-stream 이 empty  일 경우 down-stream 으로 대체할 "publisher"를 정의해주는 연산자이다. 즉, up-stream 이 비어있다면 switchIfEmpty 에 정의한 "publisher"가 곧 down-stream이 되는 것이다.
 

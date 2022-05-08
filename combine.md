@@ -43,7 +43,7 @@ static 으로 제공되는 함수다. concatWith은 그걸 사용하는 publishe
 
 ![](<.gitbook/assets/image (4).png>)
 
-![](<.gitbook/assets/image (1).png>)
+![](<.gitbook/assets/image (1) (1).png>)
 
 기본적으로 merge, mergeWith은 복수의 publisher 에 대해서 이를 합쳐서 하나의 down-stream으로 제공하되 이를 병렬처한다는 특징이 있다. flatMap과 유사하지만 element에 변형을 가하지 않는다는 점이 다르다고 생각하면 될 것 같다.
 
