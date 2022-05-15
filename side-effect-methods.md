@@ -12,7 +12,7 @@ reactor에서는 여러가지 side effect method 들을 제공한다.
 
 내가 잘못 알고 있었던 부분은 이러한 side effect method 들의 실행 순서이다. 왜 그렇게 생각하고 있었는지 이유는 정확히 모르겠지만 모든 doOn\~ operator 들이 target event의 직후에 발생한다고 생각했었다. 하지만 오히려 반대로 target event 바로 직전에 호출되는 것이 일반적인 흐름이었다.
 
-단어를 봐도 사실 do on 이라는 의미가 '실행한다. 붙어서. \~에' 이기 때문에 순서상 target event 앞이 맞다.
+단어를 봐도 사실 do on 이라는 의미가 '실행한다. 붙어서. \~에' 이기 때문에 순서상 target event 앞이 맞다. (cf. doOnComplete 은 onComplete() 직후 실행된다)
 
 ```java
     @Test
