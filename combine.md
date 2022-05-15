@@ -146,7 +146,7 @@ zip 은 두 publisher 를 하나로 묶어줄 때 사용한다. concat은 단순
 
 아래 document와 예제코드는 단순히 결합만 해주는 zip 활용에 대한 내용이다.
 
-![](<.gitbook/assets/image (6).png>)
+![](<.gitbook/assets/image (6) (1).png>)
 
 ```java
     @Test
