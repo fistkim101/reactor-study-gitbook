@@ -133,9 +133,9 @@ publisher - subscription - subscriber 원형에서 보면 subscribe에 따른 on
 
 강의에서는 reactor가 제공하는 exception/error 를 핸들링하는 operator 를 크게 두 부류로 나눠서 알려주고 있다.
 
-![](<.gitbook/assets/스크린샷 2022-05-08 오후 5.03.17.png>)
+![](<.gitbook/assets/스크린샷 2022-05-08 오후 5.03.17.png>)
 
-![](<.gitbook/assets/스크린샷 2022-05-08 오후 5.03.39.png>)
+![](<.gitbook/assets/스크린샷 2022-05-08 오후 5.03.39.png>)
 
 로직 처리중 에러가 발생했을시 에러에 기반하여 응답을 해줘야 하는 경우가 있고, 에러가 났다고 해도 이를 무시하고 처리하던 flow를 이어서 처리를 해야할 경우가 있는데 이 두 경우를 고려하여 적절한 operator 를 사용해야 한다.
 

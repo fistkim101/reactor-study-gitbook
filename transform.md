@@ -8,7 +8,7 @@ description: 변환에 관한 연산자 정리
 
 ![](<.gitbook/assets/image (2) (1) (1).png>)
 
-up-stream 이 emit 하는 각각의 element 들을 비동기적으로 모두 Publisher로 만들고, 이렇게 만들어진 multiple 한 Publisher 들을 모두 subscribe 해서 하나의 Flux로 merge 한 down-stream 을 반환한다.
+up-stream 이 emit 하는 각각의 element 들을 들어오는 순서대로 모두 Publisher로 만들고, 이렇게 만들어진 multiple 한 Publisher 들을 모두  eagerly 하게 subscribe 해서 하나의 Flux로 merge 한 down-stream 을 반환한다.
 
 여기서 up-stream의 element 들을 inner publisher 로 만드는 과정에서 각각의 lifecycle을 가진 여러 publisher 가 layer 처럼 쌓이고 이를 flatten 해서 하나의 single flow 로 merge 하기 때문에 "flat" + "map" 이라고 할 수 있다.
 
