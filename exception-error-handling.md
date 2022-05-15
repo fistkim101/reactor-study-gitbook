@@ -191,6 +191,8 @@ up-stream 을 구독중에 에러가 발생하면 그 즉시 구독이 멈추는
 
 onErrorReturn 은 단지 up-stream 구독중 error 가 발생했을때 원하는 특정한 값으로 대체해주는 operator 인 것과 대조적으로 onErrorResume 은 단어 그대로 에러가 나도 이를 '재개'해준다. 그리고 이렇게 구독을 재개해줄때 에러가 난 publisher 를 대체해줄 recovery publisher를 정의할 수 있도록 해준다.
 
+물론 recovery publisher의 element 타입은 본래의 up-stream의 element 타입과 같아야 한다.
+
 
 
 ```java
@@ -226,6 +228,8 @@ onErrorReturn 은 단지 up-stream 구독중 error 가 발생했을때 원하는
 두 번째 예제코드를 좀 주의해서 기억해둬야겠다. 여기서 나는 처음에 expectNext(1, 2, 3, 4, 5, 6, 10, 11, 12)일 거라 생각 했다. 왜냐하면 up-stream 이 1, 2, 3, error, 10, 11, 12 로 구성되어 있기 때문에 error가 onErrorResume()에 의해서 4, 5, 6으로 대체될 것이라 생각했기 때문이다. 하지만 매우 잘못된 생각이다.
 
 onErrorResume()은 에러가 발생 했을때 '대체'될 publisher를 주는 것이 아니라 '갈아 탈' publisher를 주는 것이다. 즉, onErrorResume 에서 제공하도록 설정하는 recovery publisher 는 error를 대체 시키는 것이 아니라 갈아탈 대상이다.
+
+위 예제에서 보면 "1, 2, 3, error, 10, 11, 12" 순으로 emit 될 예정이었는데 error 가 나오면서 onErrorResume 에 의해서 미리 정의된 recovery publisher인 4, 5, 6 Flux가 down-stream 으로 구성된 것이다.
 
 이것을 생각하면서 아래 코드를 다시 보자.
 
