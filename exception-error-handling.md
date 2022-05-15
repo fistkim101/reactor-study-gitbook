@@ -261,6 +261,12 @@ onErrorResume()은 에러가 발생 했을때 '대체'될 publisher를 주는 �
 
 ### onErrorContinue
 
+![](<.gitbook/assets/image (6).png>)
+
+onErrorContinue 의 핵심은 에러를 발생시킨 element 를 drop 시킴으로써 element의 emit이 지속되도록 유지시켜 준다는 것이다. 그림과 같이 앞단의 operator의 subscribe에 영향을 줄 수 있다(influences upstream).
+
+onErrorContinue는 발생한 exception과 그 exception을 발생시킨 element(the value that triggered the error)를 받는 BiConsumer를 parameter로 받는다.
+
 ```java
     @Test
     void onErrorContinueTest() {
@@ -300,8 +306,37 @@ Process finished with exit code 0
 
 ```
 
-![](<.gitbook/assets/image (6).png>)
 
-onErrorContinue 의 핵심은 에러를 발생시킨 element 를 drop 시킴으로써 element의 emit이 지속되도록 유지시켜 준다는 것이다. 그림과 같이 앞단의 operator의 subscribe에 영향을 줄 수 있다(influences upstream).
 
-onErrorContinue는 발생한 exception과 그 exception을 발생시킨 element(the value that triggered the error)를 받는 BiConsumer를 parameter로 받는다.
+
+
+### onErrorMap
+
+![](<.gitbook/assets/image (4).png>)
+
+recover 하진 않고 error를 바꿔준다. onErrorMap 의 parameter 자체가 throwable 을 받아서 throwable을 내보내주는 mapper Function이다.
+
+```java
+    @Test
+    void onErrorMapTest() {
+        Flux<Integer> numbersWithError = Flux.fromIterable(List.of(1, 2, 3))
+                .map(number ->
+                {
+                    if (number == 2) {
+                        throw new RuntimeException();
+                    }
+
+                    return number;
+                })
+                .onErrorMap(exception -> {
+                    throw new IllegalArgumentException();
+                })
+                .log();
+
+        StepVerifier.create(numbersWithError)
+                .expectNext(1)
+                .expectError(IllegalArgumentException.class)
+                .verify();
+    }
+
+```

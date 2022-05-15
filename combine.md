@@ -41,7 +41,7 @@ static 으로 제공되는 함수다. concatWith은 그걸 사용하는 publishe
 
 ### Flux.merge vs Flux.mergeWith
 
-![](<.gitbook/assets/image (4).png>)
+![](<.gitbook/assets/image (4) (1).png>)
 
 ![](<.gitbook/assets/image (1) (1).png>)
 
@@ -167,7 +167,7 @@ zip 은 두 publisher 를 하나로 묶어줄 때 사용한다. concat은 단순
 
 zipWith 도 이미 concat과 merge에서 다뤘던 내용과 유사하다. zip 이 static 메소드라면 zipWith은 publisher 의 메소드로 특정 publisher 를 parameter로 받아서 tuple형태로 down-stream 에 내려줄 수 있고, 람다로 함수를 parameter로 더 받아서 변형까지 가능하다.
 
-![](<.gitbook/assets/image (3).png>)
+![](<.gitbook/assets/image (3) (1).png>)
 
 ```java
     @Test
