@@ -1,4 +1,4 @@
-# retry, repeat
+# retry, retryWhen, repeat
 
 ### **retry()**
 
@@ -87,6 +87,68 @@ index equals 5
 
 retryWhen은 공식 문서의 설명이 너무 길어서 마블 다이어그램만 발췌해 왔다. retry를 무작정 하지 않고 retrySpec에 의거하여 retry 를 한다는 것이 특징이다. 사실 실무에서는 retry 보다 retryWhen 을 쓸 가능성이 크다고 판단된다. 특히 정상적인 요청에 대해서 상대 서버가 간헐적으로 이상한 값을 내려준다면 이를 조건적으로 판단해서 retry 해주는 로직이 필요하므로 그 때 사용하면 좋다.
 
+```java
+    @Test
+    void retryWhenTest() throws InterruptedException {
+        Flux<Integer> numbersWithError = Flux.fromIterable(List.of(1, 2, 3))
+                .concatWith(Mono.error(new IllegalStateException()))
+                .doOnError(exception -> {
+                    System.out.println("exception : " + exception.getClass().getName());
+                })
+                .log();
+
+        Retry retrySpec1 = Retry.backoff(3, Duration.ofMillis(300L))
+                .filter(exception -> exception instanceof IllegalStateException);
+
+        Retry retrySpec2 = Retry.backoff(3, Duration.ofMillis(300L))
+                .filter(exception -> exception instanceof IllegalAccessError);
 
 
-d
+        //numbersWithError.retryWhen(retrySpec1).subscribe();
+        numbersWithError.retryWhen(retrySpec2).subscribe();
+
+        Thread.sleep(10000L);
+    }
+
+```
+
+
+
+
+
+### repeat()
+
+* Used to repeat an existing sequence
+* This operator gets invoked after the onCompletion() event from the existing sequence
+* Use it when you have an use-case to subscribe to same publisher again
+* This operator works as long as No Exception is thrown
+
+![](<.gitbook/assets/image (9).png>)
+
+다시 구독(=반복)을 하기 위한 연산자이다. 강의에서도 설명하고 있고, 공식 문서에도 나와있듯이 onComplete() 이 실행되어야만 반복 구독을 실행한다. retry() 와 마찬가지로 parameter를 넣어주지 않으면 무한히 반복하고 parameter로 반복 횟수를 제한 할 수 있다.&#x20;
+
+당연한 이야기이지만 구독중에 에러가 발생할 경우 repeat은 동작하지 않는다. repeat 이 onComplete() 이후 실행된다는 것을 생각해봐도 그렇고, 구독중 에러가 발생하면 repeat 연산자를 만나기 전에 이미 구독 흐름이 중단되어버린다는 것을 생각해봐도 이것이 이치에 맞다고 인식할 수 있다.
+
+```java
+    @Test
+    void repeatWithErrorTest() {
+        Flux<Integer> numbers = Flux.fromIterable(List.of(1, 2, 3))
+                .concatWith(Mono.error(new RuntimeException()))
+                .repeat(1).log();
+
+        StepVerifier.create(numbers)
+                .expectNext(1, 2, 3)
+                .expectError(RuntimeException.class)
+                .verify();
+    }
+
+    @Test
+    void repeatTest() {
+        Flux<Integer> numbers = Flux.fromIterable(List.of(1, 2, 3)).repeat(1).log();
+
+        StepVerifier.create(numbers)
+                .expectNext(1, 2, 3, 1, 2, 3)
+                .verifyComplete();
+    }
+```
+

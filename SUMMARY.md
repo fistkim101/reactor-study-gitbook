@@ -5,4 +5,4 @@
 * [Combine](combine.md)
 * [Side Effect Methods](side-effect-methods.md)
 * [Exception/Error handling](exception-error-handling.md)
-* [retry, repeat](retry-repeat.md)
+* [retry, retryWhen, repeat](retry-retrywhen-repeat.md)
