@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Reactor study](README.md)
+* [Reactor execution model](reactor-execution-model.md)
 * [Transform](transform.md)
 * [Combine](combine.md)
 * [Side Effect Methods](side-effect-methods.md)
