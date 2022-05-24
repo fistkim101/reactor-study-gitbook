@@ -6,7 +6,7 @@ description: 조합에 관한 연산자 정리
 
 ### Flux.concat vs Flux.concatWith
 
-![](<.gitbook/assets/image (7) (1) (1).png>)
+![](<.gitbook/assets/image (7) (1) (1) (1).png>)
 
 ![](<.gitbook/assets/image (5) (1) (1).png>)
 

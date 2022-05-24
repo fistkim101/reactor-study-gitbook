@@ -145,7 +145,7 @@ publisher - subscription - subscriber 원형에서 보면 subscribe에 따른 on
 
 ### onErrorReturn
 
-![](<.gitbook/assets/image (7) (1).png>)
+![](<.gitbook/assets/image (7) (1) (1).png>)
 
 up-stream 을 구독중에 에러가 발생하면 그 즉시 구독이 멈추는 것이 대전제임을 항상 명심한다.(위에 정리했다시피 new Subscription() 내부에서 try\~catch 방식이라는 점을 기억) onErrorReturn operator는 catch 에서 정해준 특정한 값을 onNext() 를 통해서 보내주는 역할을 수행한다.
 
