@@ -3,6 +3,7 @@
 * [Reactor study](README.md)
 * [Reactor execution model 1](reactor-execution-model.md)
 * [Reactor execution model 2](reactor-execution-model-2.md)
+* [Reactor execution model 3](reactor-execution-model-3.md)
 * [Transform](transform.md)
 * [Combine](combine.md)
 * [Side Effect Methods](side-effect-methods.md)
