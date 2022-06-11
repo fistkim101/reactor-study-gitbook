@@ -177,14 +177,3 @@ subscribeOn 은 동작하는 것이 약간 다르다. 위 publishOn과는 달리
 ![](<.gitbook/assets/image (6).png>)
 
 이건 subscribeOn 과 publishOn이 섞인 경우이다. 이거 그림의 숫자가 좀 잘못된 것 같은데 영상에서는 이렇게 나오긴 했다. 아무튼 subscribeOn 이 op1의 앞에 있든, op2의 뒤에 있든, op1과 op2의 중간에 있든 publishOn을 만나기 전까지의 chain 전체에는 subscribeOn에서 명시한 thread로 동작하고 publishOn이후는 publishOn에서 명시한 thread가 처리를 하며 subscribe 내부의 로직은 결국 구독이 되어 나온 시점이므로 publishOn에서 명시한 thread가 이를 처리하는게 맞다.
-
-
-
-
-
-
-
-알아볼 것d
-
-* 웹클라이언트, repository 의 경우 내부적으로 실제로 딜레이 발생시켜서 스레드 갈아타게 만드는지 살펴보기.
-* 한다면 응답이 와서 push 수행을 하는 스레드는 애초에 요청을 한 동일한 스레드인가?
