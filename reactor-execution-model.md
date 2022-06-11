@@ -53,7 +53,7 @@ Spring MVC는 **request per thread** 가 원칙이다. 즉, 각 요청에 대해
 reactor의 execution model을 이해하기 위해 이 부분에서 유의하여 봐야할 부분은 아래와 같다.&#x20;
 
 * 1번 스레드가 외부 서버로 REAT API를 호출한 뒤 block 상태로 '일하지 않고 그냥 대기' 하고 있다는 것이다. 스레드가 block 되어 I/O가 끝날 때 까지 waiting 한다는 것이다. (외부의 응답이 늦는 것은 어쩔 수가 없기에 응답이 올때까지는 마냥 기다릴 것이 아니라 할 수 있는 일을 하면 되는데 그렇게 하지 않고 기다리는 것이 문제인 것이다. 즉, 하드웨어 성능을 더 쥐어짤 수 있는데 자원을 할당받고 로직을 처리하는 실행 단위인 스레드가 다 소진될 여지가 커지니까 이게 문제인 것이다)
-* thread의 상태가 runnable, waiting, runnable로 자주 바뀐다는 것이 곧 context switching의 발생을 의미한다. (프로세스의 context switching도 아니고 스레드의 context switching일 뿐인데 이게 그렇게 큰 비용인지는 솔직히 잘 모르겠음)
+* thread의 상태가 runnable, waiting, runnable로 자주 바뀐다는 것이 곧 context switching의 발생을 의미한다.
 * 톰캣 기본값 기준 200개의 스레드가 CPU를 할당 받기 위해 경합하면서 오버헤드가 발생한다.(아무래도 CPU의 스케줄링 방식이 무엇이든 받고자하는 주체의 수가 많을 수록 스케줄링 계산을 모두 해줘야하니까 자원을 할당해줄 후보가 많을 수록 확실히 오버헤드가 많을 수 밖에 없는 것 같음)
 
 
