@@ -11,3 +11,4 @@
 * [Exception/Error handling](exception-error-handling.md)
 * [retry, retryWhen, repeat](retry-retrywhen-repeat.md)
 * [BackPressure](backpressure.md)
+* [Cold & Hot Streams](cold-and-hot-streams.md)
